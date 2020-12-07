@@ -20,8 +20,7 @@ sudo file-unchanged-alert "${containerLogPath}"
 
 ## Example crontab entry
 
-Output to warning message to stdout when a filesystem usage exceeds 98%
-(the default).
+Output to warning message to stdout when a file hasn't changed in 5 minutes.
 You can [configure cron](http://man7.org/linux/man-pages/man5/crontab.5.html)
 to send an email when this occurs.
 
