@@ -7,9 +7,9 @@ NAME="$(basename "$0")"
 [[ "$#" -ge 1 && "$#" -le 3 ]] \
     || { echo "Usage: ${NAME} filePath [alertAfterSeconds] [email]" >&2; exit 1; }
 
-filePath=${1}
-alertAfterSeconds=${2-360}
-email=${3}
+filePath="${1}"
+alertAfterSeconds="${2-360}"
+email="${3}"
 
 [[ -e "${filePath}" ]] \
     || { echo "${NAME}: file not found: ${filePath}" >&2; exit 1; }
@@ -21,7 +21,7 @@ currentTime=$(date +%s)
 changedTime=$(stat --format %Y "${filePath}")
 deltaSeconds=$((currentTime-changedTime))
 
-if [[ ${deltaSeconds} -ge ${alertAfterSeconds} ]]; then
+if [[ "${deltaSeconds}" -ge "${alertAfterSeconds}" ]]; then
     host=$(hostname --fqdn)
     message="${NAME}\n\nHost: ${host}\nDate: $(date)\nAlert after seconds: ${alertAfterSeconds}"
     message+="\n---\nFile: ${filePath}\nLast changed: ${deltaSeconds} seconds ago"
