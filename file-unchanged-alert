@@ -2,7 +2,7 @@
 
 set -e
 
-NAME="$(basename $0)"
+NAME="$(basename "$0")"
 
 [[ "$#" -ge 1 && "$#" -le 3 ]] \
     || { echo "Usage: ${NAME} filePath [alertAfterSeconds] [email]" >&2; exit 1; }
@@ -11,8 +11,14 @@ filePath=${1}
 alertAfterSeconds=${2-360}
 email=${3}
 
+[[ -e "${filePath}" ]] \
+    || { echo "${NAME}: file not found: ${filePath}" >&2; exit 1; }
+
+[[ "${alertAfterSeconds}" =~ ^[0-9]+$ ]] \
+    || { echo "${NAME}: alertAfterSeconds must be a non-negative integer: ${alertAfterSeconds}" >&2; exit 1; }
+
 currentTime=$(date +%s)
-changedTime=$(stat --format %Y ${filePath})
+changedTime=$(stat --format %Y "${filePath}")
 deltaSeconds=$((currentTime-changedTime))
 
 if [[ ${deltaSeconds} -ge ${alertAfterSeconds} ]]; then
