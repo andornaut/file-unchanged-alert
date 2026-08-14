@@ -1,5 +1,8 @@
 # file-unchanged-alert
 
+[![CI](https://github.com/andornaut/file-unchanged-alert/actions/workflows/test.yml/badge.svg)](https://github.com/andornaut/file-unchanged-alert/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Send an email if a file hasn't changed within a given number of seconds.
 
 ## Usage
