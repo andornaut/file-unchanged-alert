@@ -27,6 +27,6 @@ Output a warning message to stdout when a file hasn't changed in 6 minutes (the 
 You can [configure cron](http://man7.org/linux/man-pages/man5/crontab.5.html)
 to send an email when this occurs.
 
-```
+```text
 5 * * * * root /usr/local/bin/file-unchanged-alert  /file/path
 ```
