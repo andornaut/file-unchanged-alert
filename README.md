@@ -24,7 +24,7 @@ sudo file-unchanged-alert "${containerLogPath}"
 ## Example crontab entry
 
 Output a warning message to stdout when a file hasn't changed in 6 minutes (the default).
-You can [configure cron](http://man7.org/linux/man-pages/man5/crontab.5.html)
+You can [configure cron](https://man7.org/linux/man-pages/man5/crontab.5.html)
 to send an email when this occurs.
 
 ```text
