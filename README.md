@@ -30,3 +30,8 @@ to send an email when this occurs.
 ```text
 5 * * * * root /usr/local/bin/file-unchanged-alert  /file/path
 ```
+
+## Development
+
+Run `make check` with Docker to check shell scripts and Markdown.
+`make check-info` lists the declared checks. No test suite or build check is declared.
